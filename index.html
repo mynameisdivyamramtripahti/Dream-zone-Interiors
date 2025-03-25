@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+      body {
+          font-family: Arial, sans-serif;
+      }
+      .carousel {
+          width: 100%;
+          height: 100vh;
+          overflow: hidden;
+          position: relative;
+      }
+      .carousel-inner {
+          display: flex;
+          width: 300%;
+          transition: transform 0.5s ease-in-out;
+      }
+      .carousel-item {
+          width: 100vw;
+          height: 100vh;
+      }
+      .carousel-item img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+      }
+      section {
+            padding: 40px 20px;
+            text-align: center;
+            background: #ddd;
+        }
+        h2 {
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-item .title {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .float{
+	         position:fixed;
+	         width:60px;
+	         height:60px;
+	         bottom:40px;
+	         right:40px;
+	         background-color:#25d366;
+	         color:#FFF;
+	         border-radius:50px;
+	         text-align:center;
+           font-size:30px;
+	         box-shadow: 2px 2px 3px #999;
+           z-index:100;
+          }
+        .counter-container {
+    display: flex; /* Use flexbox for horizontal alignment */
+    justify-content: space-around; /* Space out the counters */
+    width: 80%; /* Adjust width as needed */
+}
+
+.counter {
+    text-align: center;
+}
+
+.counter h1 {
+    font-size: 48px;
+    color: #333;
+    margin: 20px 0;
+}
+.my-float{
+	margin-top:16px;
+}
+      @media (max-width: 768px) {
+          .carousel {
+              height: 50vh;
+          }
+          .carousel-item {
+              height: 50vh;
+          }
+          .gallery {
+                grid-template-columns: 1fr;
+            }
+      }
+     
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: white;
+        }
+        .team {
+            width: 100%;
+            height: 50px; /* Ribbon height */
+            background-color: #000a2d; /* Ribbon background */
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            white-space: nowrap;
+        }
+        .java {
+          
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding-left: 100%;
+            animation: moveText 10s linear infinite;
+        }
+        @keyframes moveText {
+            from {
+                transform: translateX(0%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+            
+        }
+      
+        
+       
+  </style>
+    <title>Dream zone Interior</title>
+  </head>
+  <body>
+    <nav class="bg-gray-900 text-white shadow-lg">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between h-16">
+              <div class="flex items-center">
+                  <a href="#" class="flex-shrink-0 flex items-center">
+                      <img class="h-8 w-auto" src="/assets/logo.jpg" alt="Logo">
+                      
+                  </a>
+                  <div class="hidden md:ml-6 md:flex md:space-x-8">
+                      <a href="#" class="text-white border-b-2 border-indigo-500 px-1 pt-1 inline-flex items-center text-sm font-medium">
+                          Dashboard
+                      </a>
+                      <a href="#" class="text-gray-300 hover:text-white border-b-2 border-transparent hover:border-gray-300 px-1 pt-1 inline-flex items-center text-sm font-medium">
+                          Team
+                      </a>
+                      <a href="#" class="text-gray-300 hover:text-white border-b-2 border-transparent hover:border-gray-300 px-1 pt-1 inline-flex items-center text-sm font-medium">
+                          Projects
+                      </a>
+                      <a href="#" class="text-gray-300 hover:text-white border-b-2 border-transparent hover:border-gray-300 px-1 pt-1 inline-flex items-center text-sm font-medium">
+                          Calendar
+                      </a>
+                  </div>
+              </div>
+              <div class="flex items-center">
+                  <!-- Search -->
+                  <div class="hidden md:flex md:ml-4">
+                      <div class="relative">
+                          <input type="text" class="bg-gray-800 text-white rounded-md pl-10 pr-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 w-64" placeholder="Search...">
+                          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                              <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                  <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                              </svg>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <!-- Profile dropdown -->
+                  <div class="ml-3 relative hidden md:block">
+                      <div>
+                          <button type="button" class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                              <span class="sr-only">Open user menu</span>
+                              <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                          </button>
+                      </div>
+                      
+                      <!-- Dropdown menu, show/hide based on menu state -->
+                      <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" id="user-menu" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1">Your Profile</a>
+                          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1">Settings</a>
+                          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1">Sign out</a>
+                      </div>
+                  </div>
+                  
+                  <!-- Mobile menu button -->
+                  <div class="flex items-center md:hidden ml-4">
+                      <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-expanded="false" id="mobile-menu-button">
+                          <span class="sr-only">Open main menu</span>
+                          <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                          </svg>
+                      </button>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Mobile menu, show/hide based on menu state -->
+      <div class="md:hidden hidden" id="mobile-menu">
+          <div class="px-2 pt-2 pb-3 space-y-1">
+              <a href="#" class="bg-gray-800 text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</a>
+              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a>
+              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
+              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a>
+          </div>
+          
+          <!-- Mobile search -->
+          <div class="px-2 pt-2 pb-3">
+              <div class="relative">
+                  <input type="text" class="bg-gray-800 text-white w-full rounded-md pl-10 pr-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Search...">
+                  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                      </svg>
+                  </div>
+              </div>
+          </div>
+          
+          <!-- Mobile profile -->
+          <div class="pt-4 pb-3 border-t border-gray-700">
+              <div class="flex items-center px-5">
+                  <div class="flex-shrink-0">
+                      <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                  </div>
+                  <div class="ml-3">
+                      <div class="text-base font-medium text-white">Tom Cook</div>
+                      <div class="text-sm font-medium text-gray-400">tom@example.com</div>
+                  </div>
+              </div>
+              <div class="mt-3 px-2 space-y-1">
+                  <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Your Profile</a>
+                  <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Settings</a>
+                  <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Sign out</a>
+              </div>
+          </div>
+      </div>
+  </nav>
+
+ 
+
+ 
+  <div class="carousel bg-white">
+    <div class="carousel-inner">
+        <div class="carousel-item"><img src="/assets/header.jpg" alt="Image 1"></div>
+        <div class="carousel-item"><img src="/assets/header2.jpg" alt="Image 2"></div>
+        <div class="carousel-item"><img src="/assets/header3.jpg" alt="Image 3"></div>
+    </div>
+</div>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<a href="https://api.whatsapp.com/send?phone=9936097575&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float" target="_blank">
+<i class="fa fa-whatsapp my-float"></i>
+</a>
+<section class="team">
+  <div class="java text-white">Dream Zone Interior</div>
+</section>
+<div class="w-full lg:h-screen h-full m-auto flex items-center justify-cetner py-20 bg-gray-50 dark:bg-gray-900">
+  <div class="w-full h-full flex flex-col justify-center items-center sm:px-4 px-2">
+      <!--  -->
+      <div class="lg:w-[90%] w-full mx-auto flex flex-col lg:gap-6 lg:flex-row items-center justify-center ">
+          <div class="relative">
+              <!-- Side Img 1 -->
+              <img class="absolute z-20 lg:left-[2rem] -top-4 left-[1rem] lg:w-[8rem] lg:h-[8rem] sm:w-[6rem] sm:h-[6rem] w-[3rem] h-[3rem] rounded-full" src="/assets/IMG-20250325-WA0014.jpg" alt="Side Image" />
+
+              <!-- Side Img 2 -->
+              <img class="absolute z-20 lg:top-[12rem] sm:top-[11rem] top-[5rem] sm:-left-[3rem] -left-[2rem] lg:w-[8rem] lg:h-[8rem] sm:w-[6rem] sm:h-[6rem] w-[3rem] h-[3rem] rounded-full" src="/assets/IMG-20250325-WA0015.jpg" alt="Side Image 2" />
+
+              <!-- Side Img 3 -->
+              <img class="absolute z-20 lg:top-[23rem] sm:top-[20.5rem] top-[10.5rem] left-[2rem] lg:w-[8rem] lg:h-[8rem] sm:w-[6rem] sm:h-[6rem] w-[3rem] h-[3rem] rounded-full" src="assets/IMG-20250325-WA0016.jpg" alt="Side Image 3" />
+
+              <!-- Main Img -->
+              <img
+          class="rounded-full relative object-cover right-0 lg:w-[30rem] lg:h-[30rem] sm:w-[25rem] sm:h-[25rem] w-[12rem] h-[12rem] outline sm:outline-offset-[.77em] outline-offset-[.37em] outline-green-500"
+          src="/assets/logo.jpg" alt="About us" />
+          </div>
+          <!--  -->
+          <div
+              class="lg:w-[60%] p-4 w-full h-full shadow-xl shadow-green-300/40 flex flex-col justify-center items-center sm:px-6 px-4 rounded-xl">
+              <h2 class="text-4xl text-center text-green-600 dark:text-green-400 font-bold px-4 py-1 md:mt-0 mt-10">
+                  About Us
+              </h2>
+              <p class="md:text-3xl text-2xl text-center text-gray-800 dark:text-gray-200 font-bold my-5">We are
+                  Petal Haven S.C.
+              </p>
+              <p class="md:text-xl sm:text-lg text-base mt-2 text-justify sm:px-2 dark:text-gray-300">At Dream Zone Interior, we believe that a home is more than just four walls—it’s a reflection of dreams, emotions, and a unique story. With a passion for design and an eye for detail, we transform spaces into timeless masterpieces that blend elegance with functionality.
+
+                Our team of expert interior designers works closely with you to bring your vision to life, creating interiors that are not only aesthetically stunning but also deeply personal. Whether it's a modern makeover, a classic touch, or a completely bespoke design, we craft spaces that inspire, comfort, and elevate everyday living.
+                
+                Because at Dream Zone Interior, we don’t just design interiors—we design experiences. ✨🏡
+              </p>
+
+              <!-- button -->
+              <button class="lg:mt-10 mt-6 lg:px-6 px-4 lg:py-4 py-2 bg-green-600 rounded-sm lg:text-xl text-lg text-white font-semibold">Read More</button>
+
+          </div>
+
+      </div>
+  </div>
+</div>
+<section class=" bg-white">
+  <h2 class="text-2xl font-bold text-gray-900 sm:text-3xl">
+      Why Choose Our Platform?
+  </h2>
+  <ul class="mt-6 space-y-4 text-lg text-gray-600">
+      <li class="flex items-start">
+          <svg class="flex-shrink-0 w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+          <span class="ml-3">Join a curated selection of tools designed to enhance productivity and collaboration.</span>
+      </li>
+      <li class="flex items-start">
+          <svg class="flex-shrink-0 w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+          <span class="ml-3">Our community relies on us to deliver the best project management solutions, as shown by our loyal user base.</span>
+      </li>
+      <li class="flex items-start">
+          <svg class="flex-shrink-0 w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+          <span class="ml-3">Enjoy a robust audience with <strong>50K+ monthly visitors</strong> actively seeking tools.</span>
+      </li>
+      <li class="flex items-start">
+          <svg class="flex-shrink-0 w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+          <span class="ml-3">Gain lifetime visibility for your tool, ensuring continuous exposure to potential users.</span>
+      </li>
+      <li class="flex items-start">
+          <svg class="flex-shrink-0 w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+          <span class="ml-3">We'll showcase your tool in our <a class="text-indigo-600 hover:text-indigo-500" href="http://127.0.0.1:8000/blog">feature articles</a> and user guides.</span>
+      </li>
+  </ul>
+</section>
+<section class="team">
+  <div class="java text-white">Our projects gallery</div>
+</section>
+<section class="bg-white">
+	<div class="py-4 px-2 mx-auto max-w-screen-xl sm:py-4 lg:px-6">
+		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 h-full">
+			<div class="col-span-2 sm:col-span-1 md:col-span-2 bg-gray-50 h-auto md:h-full flex flex-col">
+				<a href="" class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 flex-grow">
+					<img src="assets/IMG-20250325-WA0018.jpg" alt="" class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out">
+					<div class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
+					<h3 class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl">bedroom</h3>
+				</a>
+			</div>
+			<div class="col-span-2 sm:col-span-1 md:col-span-2 bg-stone-50">
+				<a href="" class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 mb-4">
+					<img src="assets/IMG-20250325-WA0019.jpg" alt="" class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out">
+					<div class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
+					<h3 class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl">kitchen</h3>
+				</a>
+				<div class="grid gap-4 grid-cols-2 sm:grid-cols-2 lg:grid-cols-2">
+					<a href="" class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40">
+						<img src="assets/IMG-20250325-WA0022.jpg" alt="" class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out">
+						<div class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
+						<h3 class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl">hall</h3>
+					</a>
+					<a href="" class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40">
+						<img src="assets/IMG-20250325-WA0025.jpg">
+						<div class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
+						<h3 class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl">livingroom</h3>
+					</a>
+				</div>
+			</div>
+			<div class="col-span-2 sm:col-span-1 md:col-span-1 bg-sky-50 h-auto md:h-full flex flex-col">
+				<a href="" class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 flex-grow">
+					<img src="assets/IMG-20250325-WA0025.jpg" alt="" class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out">
+					<div class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
+					<h3 class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl">Master bedroom</h3>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+  <script>
+      // Mobile menu toggle
+      document.getElementById('mobile-menu-button').addEventListener('click', function() {
+          const mobileMenu = document.getElementById('mobile-menu');
+          const isExpanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', !isExpanded);
+          mobileMenu.classList.toggle('hidden');
+      });
+      
+      // User menu toggle
+      document.getElementById('user-menu-button')?.addEventListener('click', function() {
+          const userMenu = document.getElementById('user-menu');
+          const isExpanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', !isExpanded);
+          userMenu.classList.toggle('hidden');
+      });
+  </script>
+<header>
+
+  
+</header>
+
+    <footer>
+      <div class="section__container footer__container">
+        <div class="footer__col">
+          <div class="footer__logo">Dream Zone Interior</div>
+          <p>
+            Find a wide range of high-quality furniture pieces that will elevate
+            the style and functionality of your home.
+          </p>
+          <p><i class="ri-phone-fill"></i> +919936097575</p>
+          <p>
+            <i class="ri-map-pin-2-fill"></i> 
+          </p>
+        </div>
+        <div class="footer__col">
+          <h4>Company</h4>
+          <p>Site Map</p>
+          <p>Search Terms</p>
+          <p>Advance Search</p>
+          <p>Suppliers</p>
+          <p>Our Stores</p>
+          <p>Privacy Policy</p>
+        </div>
+        <div class="footer__col">
+          <h4>About</h4>
+          <p>Login</p>
+          <p>About Us</p>
+          <p>Wishlist</p>
+          <p>Checkout</p>
+          <p>FAQ's</p>
+          <p>Contact Us</p>
+        </div>
+        <div class="footer__col">
+          <h4>Get in touch</h4>
+          <p>Questions or feedback?</p>
+          <p>We'd love to hear from you.</p>
+        </div>
+      </div>
+      <div class="footer__bar">
+        Copyright &#169; 2025 Dream Zone Interior. All rights reserved.
+      </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+      const navLinks = document.querySelector('.nav-links');
+      const toggleButton = document.createElement('button');
+      toggleButton.innerText = 'Menu';
+      toggleButton.style.marginLeft = 'auto';
+      toggleButton.style.backgroundColor = '#333';
+      toggleButton.style.color = 'white';
+      toggleButton.style.border = 'none';
+      toggleButton.style.padding = '10px';
+      toggleButton.style.cursor = 'pointer';
+  
+      document.querySelector('.navbar').appendChild(toggleButton);
+  
+      toggleButton.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+      });
+  </script>
+      
+    
+       
+    <script>
+      let index = 0;
+      function moveSlide() {
+          const slides = document.querySelector('.carousel-inner');
+          const totalSlides = document.querySelectorAll('.carousel-item').length;
+          index++;
+          if (index >= totalSlides) index = 0;
+          slides.style.transform = `translateX(-${index * 100}vw)`;
+      }
+      
+      setInterval(moveSlide, 3000); // Auto slide every 3 seconds
+  </script>
+  </body>
+</html>
